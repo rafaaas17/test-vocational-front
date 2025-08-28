@@ -1,12 +1,5 @@
 // Detectar automáticamente si estamos en desarrollo o producción
-const isDevelopment = window.location.hostname === 'localhost' || 
-                      window.location.hostname === '127.0.0.1' ||
-                      window.location.hostname.includes('192.168');
-
-// URL base de la API - cambiar por tu URL de Railway en producción
-export const API_URL = isDevelopment 
-  ? "http://192.168.111.128/api" 
-  : "https://tu-proyecto.up.railway.app";
+export const API_URL = process.env.REACT_APP_API_URL || "http://192.168.111.128/api";
 
 // Para CRA, usa process.env.REACT_APP_API_URL
 // export const API_URL = process.env.REACT_APP_API_URL || "http://192.168.111.128/api";
